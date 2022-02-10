@@ -33,7 +33,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/hone', [LoginController::class, 'loginValidator'])->name('loginValidator');
 
 //registration
-//create ------
+//create
 Route::get('/registration', [RegistrationController::class, 'registration'])->name('registration');
 Route::post('/users', [RegistrationController::class, 'userCreate'])->name('user-create');
 
