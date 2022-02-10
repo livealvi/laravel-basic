@@ -5,6 +5,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Date of Birth</th>
@@ -12,13 +13,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($users ?? '' as $count=>$users )
+            @foreach($users ?? '' as $count=>$user )
             <tr>
                 <th scope="row">{{++$count}}</th>
-                <td>{{$users->name}}</td>
-                <td>{{$users->email}}</td>
-                <td>{{$users->dob}}</td>
-                <td>{{$users->phone}}</td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->dob}}</td>
+                <td>{{$user->phone}}</td>
             </tr>
             @endforeach
         </tbody>

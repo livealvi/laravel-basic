@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ContactControllers;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::get('/registration',[RegistrationController::class, 'registration'])->nam
 Route::post('/registration', [RegistrationController::class, 'userCreate'])->name('userCreate');
 
 //users
-Route::get('/users',[RegistrationController::class, 'users'])->name('users');
+Route::get('/users',[UsersController::class, 'users'])->name('users');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');
