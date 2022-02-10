@@ -21,7 +21,8 @@ use App\Http\Controllers\UsersController;
 */
 
 //nav-bar
-Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/home', [ProductController::class, 'home'])->name('home');
 Route::get('/service', [ProductController::class, 'service'])->name('service');
 Route::get('/product', [ProductController::class, 'product'])->name('product');
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');

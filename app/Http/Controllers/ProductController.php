@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function home()
     {
         return view('home');
     }
@@ -36,5 +36,4 @@ class ProductController extends Controller
     {
         return view('about');
     }
-
 }
