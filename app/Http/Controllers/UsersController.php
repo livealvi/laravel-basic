@@ -9,8 +9,8 @@ class UsersController extends Controller
 {
     public function users(){
 
-        $students = Student::all();
+        $student = Student::all();
 
-        return view('pages.users.users')->with('users', $students);
+        return view('pages.users.users')->with('users', $student);
     }
 }

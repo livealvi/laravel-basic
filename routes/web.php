@@ -22,22 +22,22 @@ use App\Http\Controllers\UsersController;
 
 //nav-bar
 Route::get('/', [ProductController::class, 'index'])->name('home');
-Route::get('/service',[ProductController::class, 'service'])->name('service');
-Route::get('/product',[ProductController::class, 'product'])->name('product');
-Route::get('/contact',[ProductController::class, 'contact'])->name('contact');
-Route::get('/teams',[ProductController::class, 'ourTeams'])->name('teams');
-Route::get('/about',[ProductController::class, 'about'])->name('about');
+Route::get('/service', [ProductController::class, 'service'])->name('service');
+Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
+Route::get('/teams', [ProductController::class, 'ourTeams'])->name('teams');
+Route::get('/about', [ProductController::class, 'about'])->name('about');
 
 //login
-Route::get('/login',[LoginController::class, 'login'])->name('login');
-Route::post('/hone',[LoginController::class, 'loginValidator'])->name('loginValidator');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/hone', [LoginController::class, 'loginValidator'])->name('loginValidator');
 
 //registration
-Route::get('/registration',[RegistrationController::class, 'registration'])->name('registration');
-Route::post('/registration', [RegistrationController::class, 'userCreate'])->name('userCreate');
+Route::get('/registration', [RegistrationController::class, 'registration'])->name('registration');
+Route::post('/login', [RegistrationController::class, 'userCreate'])->name('userCreate');
 
 //users
-Route::get('/users',[UsersController::class, 'users'])->name('users');
+Route::get('/users', [UsersController::class, 'users'])->name('users');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');

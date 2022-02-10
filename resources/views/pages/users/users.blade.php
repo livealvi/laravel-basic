@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($users ?? '' as $count=>$user )
+            @foreach($users as $count=>$user )
             <tr>
                 <th scope="row">{{++$count}}</th>
                 <td>{{$user->id}}</td>
