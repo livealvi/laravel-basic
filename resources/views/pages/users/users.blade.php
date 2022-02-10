@@ -13,7 +13,7 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="align-middle">
             @foreach($users as $count=>$user )
             <tr>
                 <th scope="row">{{++$count}}</th>
