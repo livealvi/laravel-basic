@@ -86,6 +86,16 @@ class RegistrationController extends Controller
         $user->phone = $request->phone;
         $user->password = $request->password;
         $user->save();
+        return redirect()->route('users');
+    }
+
+    //delete
+    public function userDelete(Request $request)
+    {
+
+        $user = Student::where('id', $request->id)->first();
+
+        $user->delete();
 
         return redirect()->route('users');
     }

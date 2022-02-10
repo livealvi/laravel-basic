@@ -45,6 +45,8 @@ Route::get('/users', [UsersController::class, 'users'])->name('users');
 Route::get('/user-edit/{id}', [RegistrationController::class, 'userEdit'])->name('user-edit');
 //update
 Route::post('/user-update', [RegistrationController::class, 'userUpdate'])->name('user-update');
+//delete
+Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->name('user-delete');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');

@@ -26,7 +26,7 @@
                     <a href="/user-edit/{{$user->id}}">
                         <button type="button" class="btn btn-success">Edit</button>
                     </a>
-                    <a href="/user-edit/{{$user->id}}">
+                    <a href="/user-delete/{{$user->id}}">
                         <button type="button" class="btn btn-danger">Delete</button>
                     </a>
                 </td>
