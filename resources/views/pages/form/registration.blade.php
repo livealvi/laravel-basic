@@ -4,7 +4,7 @@
   <div class="registration">
     <div class="registration__form">
       <h4 class="mb-5">Create an account</h4>
-      <form action="{{route('userCreate')}}" method="post" class="needs-validation">
+      <form action="{{route('user-create')}}" method="post" class="needs-validation">
         {{csrf_field()}}
 
         {{-- for error --}}

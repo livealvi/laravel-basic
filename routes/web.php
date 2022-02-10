@@ -33,11 +33,18 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/hone', [LoginController::class, 'loginValidator'])->name('loginValidator');
 
 //registration
+//create ------
 Route::get('/registration', [RegistrationController::class, 'registration'])->name('registration');
-Route::post('/login', [RegistrationController::class, 'userCreate'])->name('userCreate');
+Route::post('/users', [RegistrationController::class, 'userCreate'])->name('user-create');
 
-//users
+//users 
+//get - all
 Route::get('/users', [UsersController::class, 'users'])->name('users');
+//edit
+//get - single
+Route::get('/user-edit/{id}', [RegistrationController::class, 'userEdit'])->name('user-edit');
+//update
+Route::post('/user-update', [RegistrationController::class, 'userUpdate'])->name('user-update');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');
