@@ -56,7 +56,7 @@ Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->
 Route::get('/teachers/courses', [TeacherController::class, 'teacherCourses'])->name('teachers.courses');
 
 //courses
-Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('teacher.courses');
+Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('courses.teacher');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');

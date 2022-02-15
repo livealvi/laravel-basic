@@ -12,9 +12,9 @@ class Teacher extends Model
     protected $primaryKey = 'phone';
 
     //using hasmany verb one to many
-    public function courses(){
-        return $this->hasMany(Course::class,'teacherId');
-    }
+    // public function courses(){
+    //     return $this->hasMany(Course::class,'teacherId');
+    // }
 
     //using eloquent
     public function assignedCourses(){

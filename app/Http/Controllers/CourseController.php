@@ -11,7 +11,7 @@ class CourseController extends Controller
 {
 
     public function courseTeacher(){
-        $course = Course::where('id', i)->first();
-        return $course-assignedTeacher();
+        $course = Course::where('id', 1)->first();
+        return $course->assignedTeacher();
     }
 }
