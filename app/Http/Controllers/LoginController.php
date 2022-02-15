@@ -9,7 +9,7 @@ class LoginController extends Controller
 
     public function index()
     {
-        return view('pages.form.login');
+        return view('home');
     }
 
     public function login()
