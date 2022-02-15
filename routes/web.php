@@ -23,7 +23,7 @@ use App\Http\Controllers\CourseController;
 */
 
 //nav-bar
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('/');
 Route::get('/home', [ProductController::class, 'home'])->name('home');
 Route::get('/service', [ProductController::class, 'service'])->name('service');
 Route::get('/product', [ProductController::class, 'product'])->name('product');
