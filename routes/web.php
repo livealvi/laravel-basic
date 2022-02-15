@@ -8,6 +8,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ContactControllers;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,13 @@ Route::get('/user-edit/{id}', [RegistrationController::class, 'userEdit'])->name
 Route::post('/user-update', [RegistrationController::class, 'userUpdate'])->name('user-update');
 //delete
 Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->name('user-delete');
+
+//teacher  courses
+//get - all
+Route::get('/teachers/courses', [TeacherController::class, 'teacherCourses'])->name('teachers.courses');
+
+//courses
+Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('teacher.courses');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');
