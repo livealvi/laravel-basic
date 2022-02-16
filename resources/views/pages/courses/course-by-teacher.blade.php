@@ -17,8 +17,8 @@
                 <tr>
                     <th scope="row">{{++$count}}</th>
                     <td>{{$data->id}}</td>
-                    <td>{{$data->name}}</td>
                     <td>{{$data->course_code}}</td>
+                    <td>{{$data->name}}</td>
                     <td>{{$data->teacherId}}</td>
                 </tr>
                 @endforeach
