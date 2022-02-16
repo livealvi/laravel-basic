@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
 use App\Models\Teacher;
@@ -16,8 +17,8 @@ class TeacherController extends Controller
         return view('pages.teachers.teachers')->with('teachers', $teachers);
     }
 
-    public function teacherCourses(){
-        $teacher = Teacher::where('id', 1)->first();
+    public function teacherCourses(Request $request){
+        $teacher = Teacher::where('id', $request->id)->first();
         return $teacher->assignedCourses();
     }
 }
