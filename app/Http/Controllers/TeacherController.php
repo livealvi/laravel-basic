@@ -20,6 +20,6 @@ class TeacherController extends Controller
     public function teacherCourses(Request $request){
         $teacher = Teacher::where('id', $request->id)->first();
         $allData = $teacher->assignedCourses();
-        return view('pages.courses.course-by-teacher')->with('allData', $allData);
+        return view('pages.courses.course-by-teacher')->with('allData', $allData)->with("teacher", $teacher);
     }
 }
