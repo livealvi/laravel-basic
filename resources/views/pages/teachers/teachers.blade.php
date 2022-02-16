@@ -7,8 +7,6 @@
                 <th scope="col">#</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col">Course Name</th>
-                <th scope="col">Course Code</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -18,14 +16,9 @@
                 <th scope="row">{{++$count}}</th>
                 <td>{{$teacher->id}}</td>
                 <td>{{$teacher->name}}</td>
-                <td>{{$teacher->course_name}}</td>
-                <td>{{$teacher->code}}</td>
                 <td>
-                    <a href="/user-edit/{{$teacher->id}}">
-                        <button type="button" class="btn btn-success">Edit</button>
-                    </a>
-                    <a href="/user-delete/{{$teacher->id}}">
-                        <button type="button" class="btn btn-danger">Delete</button>
+                    <a href="/teachers/courses/{{$teacher->id}}">
+                        <button type="button" class="btn btn-success">View Details</button>
                     </a>
                 </td>
             </tr>

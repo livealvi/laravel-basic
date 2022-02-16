@@ -53,7 +53,8 @@ Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->
 
 //teacher  courses
 //get - all
-Route::get('/teachers/courses', [TeacherController::class, 'teacherCourses'])->name('teachers.courses');
+Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers');
+Route::get('/teachers/courses/{id}', [TeacherController::class, 'teacherCourses'])->name('teachers.courses');
 
 //courses
 Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('courses.teacher');
