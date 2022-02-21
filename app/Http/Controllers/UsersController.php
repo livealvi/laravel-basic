@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Student;
+use App\Models\Oldusers;
 
 class UsersController extends Controller
 {
-    public function users(){
+    public function users()
+    {
 
-        $student = Student::all();
+        $users = Oldusers::all();
 
-        return view('pages.users.users')->with('users', $student);
+        return view('pages.users.users')->with('users', $users);
     }
 }

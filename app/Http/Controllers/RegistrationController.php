@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Student;
+use App\Models\Oldusers;
 use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class RegistrationController extends Controller
@@ -39,14 +39,14 @@ class RegistrationController extends Controller
 
         //$users[]= (object)$validateUser; - for old
 
-        $users = new Student();
+        $users = new Oldusers();
         $users->name = $request->name;
         $users->email = $request->email;
         $users->dob = $request->dob;
         $users->phone = $request->phone;
         $users->password = $request->password;
         $users->save();
-        $users = Student::all();
+        $users = Oldusers::all();
         return view('pages.users.users')->with('users', $users);
     }
 
@@ -54,7 +54,7 @@ class RegistrationController extends Controller
     //get-single
     public function userEdit(Request $request)
     {
-        $user = Student::where('id', $request->id)->first();
+        $user = Oldusers::where('id', $request->id)->first();
         return view('pages.users.user-edit')->with('user', $user);
     }
 
@@ -75,7 +75,7 @@ class RegistrationController extends Controller
             ]
         );
 
-        $user = Student::where('id', $request->id)->first();
+        $user = Oldusers::where('id', $request->id)->first();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->dob = $request->dob;
@@ -88,7 +88,7 @@ class RegistrationController extends Controller
     //delete
     public function userDelete(Request $request)
     {
-        $user = Student::where('id', $request->id)->first();
+        $user = Oldusers::where('id', $request->id)->first();
         $user->delete();
         return redirect()->route('users');
     }

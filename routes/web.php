@@ -9,7 +9,9 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ContactControllers;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,7 @@ use App\Http\Controllers\CourseController;
 Route::get('/', [LoginController::class, 'index'])->name('/');
 Route::get('/home', [ProductController::class, 'home'])->name('home');
 Route::get('/service', [ProductController::class, 'service'])->name('service');
-Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('/product', [ProductController::class, 'product'])->name('product')->middleware('ValidUser');;
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/teams', [ProductController::class, 'ourTeams'])->name('teams');
 Route::get('/about', [ProductController::class, 'about'])->name('about');
@@ -44,25 +46,25 @@ Route::post('/users', [RegistrationController::class, 'userCreate'])->name('user
 
 //users 
 //get - all
-Route::get('/users', [UsersController::class, 'users'])->name('users');
+Route::get('/users', [UsersController::class, 'users'])->name('users')->middleware('ValidUser');
 //edit
 //get - single
-Route::get('/user-edit/{id}', [RegistrationController::class, 'userEdit'])->name('user-edit');
+Route::get('/user-edit/{id}', [RegistrationController::class, 'userEdit'])->name('user-edit')->middleware('ValidUser');
 //update
-Route::post('/user-update', [RegistrationController::class, 'userUpdate'])->name('user-update');
+Route::post('/user-update', [RegistrationController::class, 'userUpdate'])->name('user-update')->middleware('ValidUser');
 //delete
-Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->name('user-delete');
+Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->name('user-delete')->middleware('ValidUser');
 
 //teacher  courses
 //get - all
-Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers');
-Route::get('/teachers/courses/{id}', [TeacherController::class, 'teacherCourses'])->name('teachers.courses');
+Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers')->middleware('ValidTeacher');
+Route::get('/teachers/courses/{id}', [TeacherController::class, 'teacherCourses'])->name('teachers.courses')->middleware('ValidTeacher');
 //dashboard
 Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers')->middleware('ValidTeacher');
 
 
 //courses
-Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('courses.teacher');
+Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('courses.teacher')->middleware('ValidTeacher');
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Models\Oldusers;
 
 class LoginController extends Controller
 {
@@ -31,16 +32,25 @@ class LoginController extends Controller
             ]
         );
 
+        $user = Oldusers::where('email', $request->email)->where('password', $request->password)->first();
+
+        if ($user) {
+            $request->session()->put('user', $user->name);
+            return redirect()->route('users');
+        }
+
         $teacher = Teacher::where('email', $request->email)->where('password', $request->password)->first();
 
         if ($teacher) {
-            $request->session()->put('user', $teacher->name);
+            $request->session()->put('teacher', $teacher->name);
             return redirect()->route('teachers');
         }
+
         return back();
     }
 
-    public function logout(){
+    public function logout()
+    {
         session()->forget('user');
         return redirect()->route('login');
     }
