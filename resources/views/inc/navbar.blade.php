@@ -34,7 +34,8 @@
       </ul>
       <div class="nav navbar-nav">
         <div class="btn-nav">
-          <a class="btn btn-primary btn-small navbar-btn" href="{{route('login')}}">Login</a>
+          <a class="btn btn-primary btn-small navbar-btn " href="{{route('login')}}">Login</a>
+          <a class="btn btn-danger btn-small navbar-btn" href="{{route('logout')}}">Logout</a>
         </div>
       </div>
     </div>

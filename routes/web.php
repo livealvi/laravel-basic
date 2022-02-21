@@ -33,7 +33,9 @@ Route::get('/about', [ProductController::class, 'about'])->name('about');
 
 //login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/hone', [LoginController::class, 'loginValidator'])->name('loginValidator');
+Route::post('/login', [LoginController::class, 'loginValidator'])->name('loginValidator');
+//logout
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //registration
 //create
@@ -55,6 +57,9 @@ Route::get('/user-delete/{id}', [RegistrationController::class, 'userDelete'])->
 //get - all
 Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers');
 Route::get('/teachers/courses/{id}', [TeacherController::class, 'teacherCourses'])->name('teachers.courses');
+//dashboard
+Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers')->middleware('ValidTeacher');
+
 
 //courses
 Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('courses.teacher');

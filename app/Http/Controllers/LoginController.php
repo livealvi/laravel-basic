@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
 
 class LoginController extends Controller
 {
@@ -29,6 +30,18 @@ class LoginController extends Controller
                 'email.required' => 'Please enter valid email',
             ]
         );
-        return view('home');
+
+        $teacher = Teacher::where('email', $request->email)->where('password', $request->password)->first();
+
+        if ($teacher) {
+            $request->session()->put('user', $teacher->name);
+            return redirect()->route('teachers');
+        }
+        return back();
+    }
+
+    public function logout(){
+        session()->forget('user');
+        return redirect()->route('login');
     }
 }

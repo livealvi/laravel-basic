@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="d-flex justify-content-center mt-5">
     <table class="table table-hover table-bordered text-center">
         <thead>
