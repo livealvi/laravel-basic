@@ -34,8 +34,29 @@
       </ul>
       <div class="nav navbar-nav">
         <div class="btn-nav">
+          @if(session('user'))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarScrollingDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              {{session('user.0')}} - <span class="text-uppercase">{{session('user.1')}}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item logout text-center" href="{{route('logout')}}">Logout</a></li>
+            </ul>
+          </li>
+          @elseif(session('teacher'))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarScrollingDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              {{session('teacher.0')}} - <span class="text-uppercase">{{session('teacher.1')}}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item logout text-center" href="{{route('logout')}}">Logout</a></li>
+            </ul>
+          </li>
+          @else
           <a class="btn btn-primary btn-small navbar-btn " href="{{route('login')}}">Login</a>
-          <a class="btn btn-danger btn-small navbar-btn" href="{{route('logout')}}">Logout</a>
+          @endif
         </div>
       </div>
     </div>

@@ -35,14 +35,14 @@ class LoginController extends Controller
         $user = Oldusers::where('email', $request->email)->where('password', $request->password)->first();
 
         if ($user) {
-            $request->session()->put('user', $user->name);
+            $request->session()->put('user', [$user->name, $user->role]);
             return redirect()->route('users');
         }
 
         $teacher = Teacher::where('email', $request->email)->where('password', $request->password)->first();
 
         if ($teacher) {
-            $request->session()->put('teacher', $teacher->name);
+            $request->session()->put('user', [$teacher->name, $teacher->role]);
             return redirect()->route('teachers');
         }
 
@@ -54,5 +54,10 @@ class LoginController extends Controller
         session()->forget('user');
         session()->forget('teacher');
         return redirect()->route('login');
+    }
+
+    public function noPermission()
+    {
+        return view('nopermission');
     }
 }

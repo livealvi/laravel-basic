@@ -68,3 +68,6 @@ Route::get('/courses', [CourseController::class, 'courseTeacher'])->name('course
 
 //Contact
 Route::post('/contact', [ContactControllers::class, 'contactUs'])->name('contactUs');
+
+//no-permission
+Route::get('/no-permission', [LoginController::class, 'noPermission'])->name('no-permission');

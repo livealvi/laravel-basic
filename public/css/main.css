@@ -33,3 +33,8 @@ a {
 .contact {
     width: 100%;
 }
+
+.logout:hover {
+    color: white;
+    background-color: #dc3545;
+}

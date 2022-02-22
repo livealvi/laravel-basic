@@ -16,9 +16,12 @@ class ValidUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->get('user')) {
+        if ($request->session()->get('user.1') == 'User' || $request->session()->get('user.1') == 'Admin') {
             return $next($request);
+        } elseif ($request->session()->get('user')) {
+            return redirect()->route('no-permission');
+        } else {
+            return redirect()->route('login');
         }
-        return redirect()->route('login');
     }
 }

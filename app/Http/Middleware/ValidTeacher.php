@@ -16,9 +16,12 @@ class ValidTeacher
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->get('teacher')) {
+        if ($request->session()->get('user.1') == 'Teacher' || $request->session()->get('user.1') == 'Admin') {
             return $next($request);
+        } elseif ($request->session()->get('user.1') == 'User') {
+            return redirect()->route('no-permission');
+        } else {
+            return redirect()->route('login');
         }
-        return redirect()->route('login');
     }
 }
