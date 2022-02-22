@@ -9,7 +9,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ContactControllers;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
 
 
@@ -61,6 +61,9 @@ Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers'
 Route::get('/teachers/courses/{id}', [TeacherController::class, 'teacherCourses'])->name('teachers.courses')->middleware('ValidTeacher');
 //dashboard
 Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers')->middleware('ValidTeacher');
+
+//admin
+Route::get('/admin/dashboard', [AdminController::class, 'getAllUser'])->name('admin-dashboard')->middleware('ValidAdmin');
 
 
 //courses

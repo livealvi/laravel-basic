@@ -33,19 +33,18 @@ class LoginController extends Controller
         );
 
         $user = Oldusers::where('email', $request->email)->where('password', $request->password)->first();
-
-        if ($user) {
-            $request->session()->put('user', [$user->name, $user->role]);
-            return redirect()->route('users');
-        }
-
         $teacher = Teacher::where('email', $request->email)->where('password', $request->password)->first();
 
-        if ($teacher) {
+        if ($user && $user->role == 'Admin') {
+            $request->session()->put('user', [$user->name, $user->role]);
+            return redirect()->route('admin-dashboard');
+        } elseif ($user) {
+            $request->session()->put('user', [$user->name, $user->role]);
+            return redirect()->route('users');
+        } elseif ($teacher && $teacher->role == 'Teacher') {
             $request->session()->put('user', [$teacher->name, $teacher->role]);
             return redirect()->route('teachers');
         }
-
         return back();
     }
 

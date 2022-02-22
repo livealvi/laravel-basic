@@ -41,16 +41,16 @@
               {{session('user.0')}} - <span class="text-uppercase">{{session('user.1')}}</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item logout text-center" href="{{route('logout')}}">Logout</a></li>
-            </ul>
-          </li>
-          @elseif(session('teacher'))
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarScrollingDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              {{session('teacher.0')}} - <span class="text-uppercase">{{session('teacher.1')}}</span>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+
+              {!!
+              session('user.1') == "Admin" ? '<li><a class="dropdown-item logout text-center"
+                  href="admin/dashboard">Dashboard</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>' : ''
+              !!}
+
+
               <li><a class="dropdown-item logout text-center" href="{{route('logout')}}">Logout</a></li>
             </ul>
           </li>
